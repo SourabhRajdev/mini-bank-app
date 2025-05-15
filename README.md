@@ -29,5 +29,5 @@ A simple C++ console application that simulates basic banking operations such as
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/yourusername/mini-bank-app.git
+   git clone https://github.com/SourabhRajdev/mini-bank-app.git
    cd mini-bank-app
