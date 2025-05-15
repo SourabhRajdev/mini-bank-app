@@ -1,0 +1,22 @@
+{
+    "sourceFile": "main.cpp",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1747292182268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1747292603423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,35 @@\n #include <iostream>\n+#include <limits>\n #include \"BankSystem.h\"\n-using namespace std;\n \n+using std::cin;\n+using std::cout;\n+using std::endl;\n+using std::string;\n+using std::numeric_limits;\n+using std::streamsize;\n+\n int main() {\n     BankSystem bank;\n     int choice;\n     string name;\n     int amount;\n \n     while (true) {\n         cout << \"\\n--- Mini Bank ---\\n\";\n-        cout << \"1. Create Account\\n2. Deposit\\n3. Withdraw\\n4. Check Balance\\n5. Exit\\n\";\n+        cout << \"1. Create Account\\n2. Deposit\\n3. Withdraw\\n4. Check Balance\\n5. Print Transactions\\n6. Exit\\n\";\n         cout << \"Enter choice: \";\n+\n         cin >> choice;\n \n+        if (cin.fail()) {\n+            cin.clear();\n+            cin.ignore(numeric_limits<streamsize>::max(), '\\n');\n+            cout << \"Invalid input. Please enter a number.\\n\";\n+            continue;\n+        }\n+\n         switch (choice) {\n             case 1:\n                 cout << \"Enter name: \";\n                 cin >> name;\n@@ -35,8 +50,13 @@\n                 cin >> name;\n                 bank.checkBalance(name);\n                 break;\n             case 5:\n+                cout << \"Enter name: \";\n+                cin >> name;\n+                bank.printTransactions(name);\n+                break;\n+            case 6:\n                 cout << \"Goodbye!\\n\";\n                 return 0;\n             default:\n                 cout << \"Invalid choice.\\n\";\n"
+                }
+            ],
+            "date": 1747292182268,
+            "name": "Commit-0",
+            "content": "#include <iostream>\n#include \"BankSystem.h\"\nusing namespace std;\n\nint main() {\n    BankSystem bank;\n    int choice;\n    string name;\n    int amount;\n\n    while (true) {\n        cout << \"\\n--- Mini Bank ---\\n\";\n        cout << \"1. Create Account\\n2. Deposit\\n3. Withdraw\\n4. Check Balance\\n5. Exit\\n\";\n        cout << \"Enter choice: \";\n        cin >> choice;\n\n        switch (choice) {\n            case 1:\n                cout << \"Enter name: \";\n                cin >> name;\n                bank.createAccount(name);\n                break;\n            case 2:\n                cout << \"Enter name and amount: \";\n                cin >> name >> amount;\n                bank.deposit(name, amount);\n                break;\n            case 3:\n                cout << \"Enter name and amount: \";\n                cin >> name >> amount;\n                bank.withdraw(name, amount);\n                break;\n            case 4:\n                cout << \"Enter name: \";\n                cin >> name;\n                bank.checkBalance(name);\n                break;\n            case 5:\n                cout << \"Goodbye!\\n\";\n                return 0;\n            default:\n                cout << \"Invalid choice.\\n\";\n        }\n    }\n}\n"
+        }
+    ]
+}

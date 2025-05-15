@@ -1,0 +1,22 @@
+{
+    "sourceFile": "bankSystem.h",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1747292157482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1747292573695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,21 @@\n+#ifndef BANKSYSTEM_H\n+#define BANKSYSTEM_H\n+\n #include <string>\n #include <map>\n+#include <vector>\n \n class BankSystem {\n private:\n     std::map<std::string, int> accounts;\n+    std::map<std::string, std::vector<std::string>> transactionLogs;\n \n public:\n     void createAccount(const std::string& name);\n     void deposit(const std::string& name, int amount);\n     void withdraw(const std::string& name, int amount);\n     void checkBalance(const std::string& name);\n+    void printTransactions(const std::string& name);\n };\n+\n+#endif\n"
+                }
+            ],
+            "date": 1747292157482,
+            "name": "Commit-0",
+            "content": "#include <string>\n#include <map>\n\nclass BankSystem {\nprivate:\n    std::map<std::string, int> accounts;\n\npublic:\n    void createAccount(const std::string& name);\n    void deposit(const std::string& name, int amount);\n    void withdraw(const std::string& name, int amount);\n    void checkBalance(const std::string& name);\n};\n"
+        }
+    ]
+}
